@@ -1,8 +1,5 @@
 #!/bin/bash -eux
 
-echo "==> Recording box generation date"
-date > /etc/vagrant_box_build_date
-
 echo "==> Customizing message of the day"
 MOTD_FILE=/etc/motd
 BANNER_WIDTH=64
