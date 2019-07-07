@@ -3,10 +3,10 @@
   "builders": [{
     "type": "qemu",
     "accelerator": "kvm",
-    "headless": false,
+    "headless": true,
     "qemuargs": [
       [ "-m", "2048M" ],
-      [ "-smp", "cpus=1,maxcpus=4,cores=1" ]
+      [ "-smp", "cpus=1,maxcpus=1,cores=1" ]
     ],
     "disk_interface": "virtio",
     "disk_size": "{{ user `disk_size` }}",
@@ -35,8 +35,10 @@
     "ssh_password": "{{ user `ssh_password` }}",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_timeout": "20m",
-    "ssh_wait_timeout": "360s",
+    "ssh_wait_timeout": "1360s",
 
+    "vnc_bind_address": "0.0.0.0",
+    "vnc_port_max": "5930",
     "vm_name": "{{ user `vm_name` }}"
   }],
   "post-processors": [
